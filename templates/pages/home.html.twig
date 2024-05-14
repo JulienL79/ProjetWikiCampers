@@ -1,0 +1,22 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Accueil
+{% endblock %}
+
+{% block body %}
+	<div class='container mt-4'>
+		<div class="jumbotron">
+			<h1 class="display-4">Bonjour à toi jeune barroudeur!</h1>
+			<p class="lead">Tu souhaites partir en roadtrip avec un superbe bolide? Que ce soit un camping-Car, un van, ou même une trottinette, nous avons tout ce qu'il te faut! Lance donc la recherche!</p>
+			<hr class="my-4">
+			<p class="lead">
+				<a class="btn btn-primary btn-lg" href="{{ path('app_rent') }}" role="button">Lancer la recherche</a>
+			</p>
+			<hr class="my-4">
+			<p class="lead">Tu as un beau bolide, et tu recherches un revenu complémentaire? La question est vite répondue -> Mets-le à disposition!</p>
+			<p class="lead">
+				<a class="btn btn-primary btn-lg" href="{{ path('app_vehicle') }}" role="button">Louer mon véhicule</a>
+			</p>
+		</div>
+	</div>
+{% endblock %}

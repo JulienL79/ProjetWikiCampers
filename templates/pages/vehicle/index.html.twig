@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gestion des véhicules
+{% endblock %}
+
+{% block body %}
+	<div class='container mt-4'>
+
+		{% for message in app.flashes('success') %}
+			<div class="alert alert-success mt-4">
+				{{ message }}
+			</div>
+		{% endfor %}
+
+		<div class="jumbotron">
+			<h3>Ton véhicule n'est pas dans la liste ci-dessous? Tu peux l'ajouter!</h3>
+			<p></p>
+			<p class="lead">
+				<a class="btn btn-primary btn-lg" href="{{ path('app_vehicle.new') }}" role="button">Ajouter mon véhicule</a>
+			</p>
+			<hr class="my-4">
+		</div>
+		<div class='container mt-4'>
+			<h1>Liste des véhicules<h1>
+
+					<table class='table table-primary'>
+						<thead>
+							<th scope='col'>Immatriculation</th>
+							<th scope='col'>Marque</th>
+							<th scope='col'>Modèle</th>
+							<th scope="col">Modifier</th>
+							<th scope="col">Supprimer</th>
+							<th scope="col">Disponibilité</th>
+						</thead>
+						<tbody>
+							{% for vehicle in vehicles %}
+								<tr class='table-light'>
+									<td scope='row'>{{vehicle.vehicleNumber}}</td>
+									<td>{{vehicle.brand}}</td>
+									<td>{{vehicle.model}}</td>
+									<td>
+										<a href="{{ path('app_vehicle.edit', { id: vehicle.idV }) }}" class="btn btn-warning">Modifier</a>
+									</td>
+									<td>
+										<a href="{{ path('app_vehicle.delete', { id: vehicle.idV }) }}" class="btn btn-secondary">Supprimer</a>
+									</td>
+									<td>
+										<a href="{{ path('app_vehicle_add_availability', { id: vehicle.idV }) }}" class="btn btn-info">Ajouter</a>
+									</td>
+
+								</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+					<div class="navigation d-flex justify-content-center">
+						{{ knp_pagination_render(vehicles) }}
+					</div>
+				</div>
+			{% endblock %}

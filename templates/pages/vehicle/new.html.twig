@@ -1,0 +1,33 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+	<div class='container'>
+		<h1 class='mt-4'>Ajouter un véhicule</h1>
+
+		{{ form_start(form) }}
+
+		<div class='form-group'>
+			{{ form_label (form.vehicleNumber)}}
+			{{ form_widget (form.vehicleNumber)}}
+			<div class='form-error'>
+				{{form_errors(form.vehicleNumber)}}
+			</div>
+		</div>
+
+		<div class='form-group'>
+			{{ form_label (form.brand)}}
+			{{ form_widget (form.brand)}}
+		</div>
+
+		<div class='form-group'>
+			{{ form_label (form.model)}}
+			{{ form_widget (form.model)}}
+		</div>
+
+		<div class='form-group'>
+			{{ form_row (form.submit)}}
+		</div>
+
+	</div>
+	{{form_end(form)}}
+{% endblock %}

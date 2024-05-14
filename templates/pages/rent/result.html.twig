@@ -1,0 +1,54 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Résultat de la recherche
+{% endblock %}
+
+{% block body %}
+
+	<div class='container mt-4'>
+
+		{% for message in app.flashes('success') %}
+			<div class="alert alert-success mt-4">
+				{{ message }}
+			</div>
+		{% endfor %}
+
+		{% for message in app.flashes('warning') %}
+			<div class="alert alert-warning mt-4">
+				{{ message }}
+			</div>
+		{% endfor %}
+
+		{% for message in app.flashes('danger') %}
+			<div class="alert alert-danger mt-4">
+				{{ message }}
+			</div>
+		{% endfor %}
+
+	</div>
+	<div class='container mt-4'>
+		<h1>Vehicules disponibles<h1>
+				<hr class="my-4">
+
+				<table class='table table-primary'>
+					<thead>
+						<th scope='col'>Modèle</th>
+						<th scope='col'>Marque</th>
+						<th scope="col">Prix total</th>
+					</thead>
+					<tbody>
+						{% for availability in availableVehicles %}
+							<tr class='table-light'>
+								<td scope='row'>{{availability.idVehicle.model}}</td>
+								<td>{{availability.idVehicle.brand}}</td>
+								<td>{{availability.dayPriceA * period}}</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+				<div class="navigation d-flex justify-content-center">
+					{{ knp_pagination_render(availableVehicles) }}
+				</div>
+			</div>
+
+		{% endblock %}

@@ -1,0 +1,47 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Ajouter un véhicule
+{% endblock %}
+
+{% block body %}
+	<div class='container'>
+		<h1 class='mt-4'>Ajouter une disponibilité</h1>
+
+		{{ form_start(form) }}
+
+		<div class='form-group'>
+			{{ form_label (form.startDateA)}}
+			{{ form_widget (form.startDateA)}}
+			<div class='form-error'>
+				{{form_errors(form.startDateA)}}
+			</div>
+		</div>
+
+		<div class='form-group'>
+			{{ form_label (form.endDateA)}}
+			{{ form_widget (form.endDateA)}}
+			<div class='form-error'>
+				{{form_errors(form.endDateA)}}
+			</div>
+		</div>
+
+		<div class='form-group'>
+			{{ form_label (form.dayPriceA)}}
+			{{ form_widget (form.dayPriceA)}}
+			<div class='form-error'>
+				{{form_errors(form.dayPriceA)}}
+			</div>
+		</div>
+
+		<div class="form-group">
+			{{ form_row(form._token) }}
+		</div>
+
+		<div class='form-group'>
+			{{ form_row (form.submit)}}
+		</div>
+
+	</div>
+	{{ form_end(form) }}
+
+{% endblock %}

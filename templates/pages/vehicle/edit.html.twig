@@ -1,0 +1,37 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Modifier un véhicule
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+
+		<h1 class="mt-4">Modification du véhicule</h1>
+
+		<form name="vehicle" method="post">
+
+			<div class="form-group">
+				{{ form_label(form.vehicleNumber) }}
+				{{ form_widget(form.vehicleNumber) }}
+				<div class="form-error">
+					{{ form_errors(form.vehicleNumber) }}
+				</div>
+			</div>
+
+			<div class="form-group">
+				{{ form_label(form.brand) }}
+				{{ form_widget(form.brand) }}
+			</div>
+
+			<div class="form-group">
+				{{ form_label(form.model) }}
+				{{ form_widget(form.model) }}
+			</div>
+
+			{{ form_row(form._token) }}
+
+			<button type="submit" id="vehicle_submit" name="vehicle[submit]" class="btn btn-primary mt-4">Modifier</button>
+
+		</form>
+	</div>
+{% endblock %}
