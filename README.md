@@ -16,7 +16,10 @@ En effet, il permet:
 # Installation
 
 Procédure:
-- Télécharger le dossier "ProjetWikiCampers" et sauvegarder le sous votre htdocs de votre serveur
+- Cloner le projet avec la commande suivante dans votre terminal:
+```
+git clone https://github.com/JulienL79/ProjetWikiCampers.git
+```
 - Lancer votre MySQL
 - Ouvrir le fichier ProjetWikiCampers dans votre éditeur de code et lancer dans un terminal les commandes :
 
